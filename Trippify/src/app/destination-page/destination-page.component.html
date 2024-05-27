@@ -1,0 +1,185 @@
+<!-- location Add Parameter
+  StateName
+  LocationName
+  Address
+  ContactNumber
+  ContactPerson
+  Category (Mall,Historical places,Temple,Hotel,Cafe etc)
+  Pictures
+ -->
+<div class="alert alert-primary" *ngIf="ProductAddedModel" role="alert">
+  <i class="text-center">Your new location has been added successfully...</i>
+</div>
+<div class="alert alert-primary" *ngIf="CategoryAddedModel" role="alert">
+  <i class="text-center">Your new category has been added successfully...</i>
+</div>
+<div class="alert alert-primary" *ngIf="StateAddedModel" role="alert">
+  <i class="text-center">Your new state has been added successfully...</i>
+</div>
+<div class="row">
+  <div class="col-md-6 card">
+    <div class="card-header">
+      <h3 class="text-center">Add Loaction</h3>
+    </div>
+    <div class="card-body">
+      <div class="row my-2">
+        <div class="col-md-3">
+          <label for="StateName" class="form-label">State</label>
+        </div>
+        <div class="col-md-9">
+          <select name="" [(ngModel)]="locationObj.StateName" id="StateName" class="form-select">
+            <option [value]="0">Select State</option>
+            <option *ngFor="let state of allStateList" [value]="state.id">
+              <b>{{state.name}}</b> - <i>{{state.description}}</i>
+            </option>
+          </select>
+        </div>
+      </div>
+      <div class="row my-2">
+        <div class="col-md-3">
+          <label for="LocationName" class="form-label">Name</label>
+        </div>
+        <div class="col-md-9">
+          <input type="text" class="form-control" id="LocationName" name="LocationName" aria-describedby="LocationName"
+            [(ngModel)]="locationObj.LocationName">
+        </div>
+      </div>
+      <div class="row my-2">
+        <div class="col-md-3">
+          <label for="Category" class="form-label">Category</label>
+        </div>
+        <div class="col-md-9">
+          <select name="" [(ngModel)]="locationObj.Category" id="Category" class="form-select">
+            <option [value]="0">Select Category</option>
+            <option *ngFor="let cate of allCategoryList" [value]="cate.id">
+              {{cate.name}} - {{cate.description}}
+            </option>
+          </select>
+        </div>
+      </div>
+      <div class="row my-2">
+        <div class="col-md-3">
+          <label for="Address" class="form-label">Address</label>
+        </div>
+        <div class="col-md-9">
+          <input type="text" class="form-control" id="Address" aria-describedby="Address"
+            [(ngModel)]="locationObj.Address" name="Address">
+        </div>
+      </div>
+      <div class="row my-2">
+        <div class="col-md-3">
+          <label for="Description" class="form-label">Description</label>
+        </div>
+        <div class="col-md-9">
+          <input type="text" class="form-control" id="Description" aria-describedby="Description"
+            [(ngModel)]="locationObj.Description" name="Description">
+        </div>
+      </div>
+      <div class="row my-2">
+        <div class="col-md-3">
+          <label for="ContactPerson" class="form-label">Contact Person</label>
+        </div>
+        <div class="col-md-9">
+          <input type="text" class="form-control" id="ContactPerson" aria-describedby="ContactPerson"
+            [(ngModel)]="locationObj.ContactPerson" name="ContactPerson">
+        </div>
+      </div>
+      <div class="row my-2">
+        <div class="col-md-3">
+          <label for="ContactNumber" class="form-label">Contact Number</label>
+        </div>
+        <div class="col-md-9">
+          <input type="text" class="form-control" id="ContactNumber" aria-describedby="ContactNumber"
+            [(ngModel)]="locationObj.ContactNumber" name="ContactPerson">
+        </div>
+      </div>
+      <div class="row my-2">
+        <div class="col-md-3">
+          <label for="Pictures" class="form-label">Pictures</label>
+        </div>
+        <div class="col-md-9">
+          <input type="file" class="form-control" name="Picture" id="Picture" aria-describedby="Picture"
+          (change)="onFileSelected($event)">
+        </div>
+      </div>
+      <div class="d-flex justify-content-center">
+        <button class="btn btn-primary" (click)="addLocation()">Add Location</button>
+      </div>
+    </div>
+
+
+  </div>
+  <div class="col-md-6">
+    <div class="accordion" id="accordionExample">
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingOne">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+            aria-expanded="true" aria-controls="collapseOne">
+            <h3>Add State</h3>
+          </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+          data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <div class="row my-2">
+              <div class="col-md-3">
+                <label for="State" class="form-label">State</label>
+              </div>
+              <div class="col-md-9">
+                <input type="text" class="form-control" placeholder="Enter state name..." id="State" name="State"
+                  aria-describedby="State" [(ngModel)]="stateObj.Name">
+              </div>
+            </div>
+            <div class="row my-2">
+              <div class="col-md-3">
+                <label for="Description" class="form-label">Description</label>
+              </div>
+              <div class="col-md-9">
+                <textarea class="form-control" placeholder="Leave a description here" name="Description"
+                  id="StateDescription" [(ngModel)]="stateObj.Description"></textarea>
+              </div>
+            </div>
+            <div class="col-md-12 d-flex justify-content-center">
+              <button class="btn btn-primary" (click)="addState()">Add State</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingTwo">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+            <h3>Add Category</h3>
+          </button>
+        </h2>
+        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+          data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+            <div class="row my-2">
+              <div class="col-md-3">
+                <label for="Name" class="form-label">Category</label>
+              </div>
+              <div class="col-md-9">
+                <input type="text" class="form-control" placeholder="Enter category name..." id="State" name="Name"
+                  aria-describedby="Name" [(ngModel)]="categoryObj.Name">
+              </div>
+            </div>
+            <div class="row my-2">
+              <div class="col-md-3">
+                <label for="Description" class="form-label">Description</label>
+              </div>
+              <div class="col-md-9">
+                <textarea class="form-control" placeholder="Leave a description here" name="Description"
+                  id="CategoryDescription" [(ngModel)]="categoryObj.Description"></textarea>
+              </div>
+            </div>
+            <div class="col-md-12 d-flex justify-content-center">
+              <button class="btn btn-primary" (click)="addCategory()">Add State</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

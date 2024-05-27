@@ -1,0 +1,39 @@
+<div class="card mt-2" >
+
+    <div class="card-header text-center">
+         <p class="display-4 fst-italic" >Location list</p>
+    </div>
+    <div class="card-body">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>State Name</th>
+                    <th>Location Name</th>
+                    <th>Address</th>
+                    <th>Contact Number</th>
+                    <th>Contact Person</th>
+                    <th>Description</th>
+                    <th>Category</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody *ngFor="let place of allLocationList">
+                <tr>
+                    <td>{{place.stateName}}</td>
+                    <td>{{place.locationName}}</td>
+                    <td>{{place.address}}</td>
+                    <td>{{place.contactNumber}}</td>
+                    <td>{{place.contactPerson}}</td>
+                    <td>{{place.description}}</td>
+                    <td>{{place.category}}</td> 
+                    <td>
+                        <a routerLink="/DestinationDetail/{{place.id}}">View</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+
+</div>
+

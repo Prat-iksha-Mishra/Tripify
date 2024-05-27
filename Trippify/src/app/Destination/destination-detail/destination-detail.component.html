@@ -1,0 +1,17 @@
+<div class="card mt-2" *ngIf="locationName">
+    <div class="row featurette">
+        <div class="col-md-8 mx-2 ">
+          <h2 class="featurette-heading fw-normal lh-1">{{locationName.stateName}}
+            <span class="text-body-secondary"> {{locationName.description}}</span></h2>
+          <p class="lead">
+          </p>
+        </div>
+        <div class="col-md-3 mt-2 mb-2">
+          <img
+            src="https://images.unsplash.com/photo-1595658658481-d53d3f999875?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fG11bWJhaXxlbnwwfHwwfHx8MA%3D%3D"
+            class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" alt="Your Image"
+            width="500" height="500">
+        </div>
+      </div>
+</div>
+<router-outlet></router-outlet>
