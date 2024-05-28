@@ -1,42 +1,43 @@
-<div class="card mt-2 mt-4">
-  <div class="card-header m-auto">
-    <H1 class="display-4 fst-italic">Contact Trippify Expert</H1>
+<div class=" mt-2 mt-4">
+  <div class="m-auto">
+    <H1 class="display-4 fst-italic text-center">Contact Trippify Expert</H1>
   </div>
   <div class="card-body mt-4">
     <div class="row">
-      <div class="col-md-6">
+      <div class="mx-5 col-md-6">
         <form>
           <div class="mb-3 row">
             <div class="col-md-3">
-              <label for="Name" class="form-label">Name</label>
+              <label for="userName" class="form-label">Name</label>
             </div>
             <div class="col-md-9">
-              <input type="text" class="form-control" id="exampleInputName" aria-describedby="nameHelp">
-              <div id="nameHelp" class="form-text">Share your sweet name here.</div>
-            </div>
-          </div>
-          <div class="mb-3 row">
-            <div class="col-md-3"><label for="exampleInputEmail1" class="form-label">Email address</label></div>
-            <div class="col-md-9">
-              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-              <div id="emailHelp" class="form-text text-start">We'll never share your email with anyone else.</div>
+              <input type="text" class="form-control" id="userName" name="userName" aria-describedby="userName" [(ngModel)]="contactObj.userName">
+              <div id="userName" class="form-text">Share your sweet name here.</div>
             </div>
           </div>
           <div class="mb-3 row">
             <div class="col-md-3">
-              <label for="floatingTextarea2">Question</label>
+            <label for="userEmail" class="form-label">Email address</label></div>
+            <div class="col-md-9">
+              <input type="userEmail" class="form-control" id="userEmail" aria-describedby="userEmail" name="userEmail" [(ngModel)]="contactObj.userEmail">
+              <div id="userEmail" class="form-text text-start">We'll never share your email with anyone else.</div>
+            </div>
+          </div>
+          <div class="mb-3 row">
+            <div class="col-md-3">
+              <label for="userComment">Question</label>
             </div>
             <div class="col-md-9">
               <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"
-                style="height: 100px"></textarea>
-              <div id="emailHelp" class="form-text text-start">You can write whatever you want to ask regarding your
+                style="height: 100px" name="userComment" [(ngModel)]="contactObj.userComment"></textarea>
+              <div id="userComment" class="form-text text-start">You can write whatever you want to ask regarding your
                 travel plan...</div>
             </div>
           </div>
-          <button type="submit" class="btn btn-primary">Submit</button>
+          <button type="submit" class="btn btn-primary" (click)="contactUs()">Submit</button>
         </form>
       </div>
-      <div class="col-md-4 mt-2 offset-2">
+      <div class="col-md-3 mt-2 offset-2">
 
         <body>
           <div class="wrapper">
@@ -81,8 +82,35 @@
             <span class="music-note" id="two">&#9834;</span>
           </div>
         </body>
+        <div class="d-flex justify-content-center">
+          <button class="btn btn-danger mt-2 blinking-button" (click)="toggleQueries()">Click here for Customer Queries</button>
+        </div>
+        
+
       </div>
     </div>
 
   </div>
 </div>
+
+<div *ngIf="showQueries">
+  <h1 class="display-4 fst-italic text-center">Customer's Queries</h1>
+  <div class="accordion" id="accordionExample">
+    <div class="accordion-item" *ngFor="let que of query; let i = index">
+      <h2 class="accordion-header" id="heading{{i}}">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" [attr.data-bs-target]="'#collapse' + i" aria-expanded="true" [attr.aria-controls]="'collapse' + i">
+          {{que.userName}} : {{que.userEmail}}
+        </button>
+      </h2>
+      <div [id]="'collapse' + i" class="accordion-collapse collapse show" [attr.aria-labelledby]="'heading' + i" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          <h1 class="display-6">{{que.userComment}}</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
