@@ -1,3 +1,53 @@
 .carouselExample{
     max-height: 100px;
 }
+.wrapper {
+  width: 100%;
+  overflow: hidden;
+}
+.photobanner {
+  position: relative;
+  height: 250px; /* Adjusted height to fit image and text */
+  margin-bottom: 30px;
+  display: flex;
+  width: calc(200px * 10 + 50px * 9); /* Adjust based on the number of cards and margins */
+  animation: bannermove 20s linear infinite alternate-reverse;
+}
+.slidercard {
+  width: 233px;
+  margin: 0px 25px;
+  padding: 10px;
+  background-color: #fff;
+  box-shadow: 2px 2px 8px #8a8a8a;
+  border-radius: 8px;
+  flex: 0 0 auto;
+  text-align: center;
+}
+.slidercard img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+.slidercard p {
+  margin: 10px 0 0 0;
+  font-size: 1em;
+  color: #333;
+}
+@keyframes bannermove {
+  from {
+      transform: translateX(0);
+  }
+  to {
+      transform: translateX(-2700px); /* Adjust based on the total width of the cards */
+  }
+}
+
+.blinking-header {
+  animation: blink 1s linear infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+

@@ -35,6 +35,7 @@ export class DestinationPageComponent implements OnInit {
     "StateName": 0,
     "LocationName": '',
     "Address": '',
+    "Description": '',
     "ContactNumber": '',
     "ContactPerson": '',
     "Category": 0,
