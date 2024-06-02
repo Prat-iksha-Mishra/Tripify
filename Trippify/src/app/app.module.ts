@@ -14,6 +14,8 @@ import { provideHttpClient, withFetch } from '@angular/common/http';
 import { FileComponent } from './file/file.component';
 import { DestinationListComponent } from './Destination/destination-list/destination-list.component';
 import { DestinationDetailComponent } from './Destination/destination-detail/destination-detail.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +30,7 @@ import { DestinationDetailComponent } from './Destination/destination-detail/des
     FileComponent,
     DestinationListComponent,
     DestinationDetailComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,7 +39,8 @@ import { DestinationDetailComponent } from './Destination/destination-detail/des
   ],
   providers: [
     provideClientHydration(),
-    provideHttpClient(withFetch())
+    provideHttpClient(withFetch()),
+    provideAnimationsAsync()
   ],
   bootstrap: [AppComponent]
 })

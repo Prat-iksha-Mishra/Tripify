@@ -8,9 +8,10 @@ import { LocationService } from '../../Services/location.service';
 })
 export class DestinationListComponent implements OnInit {
   allLocationList: any = [];
+  locationId: any;
 
-  
-  constructor(private locationSrv : LocationService ) {   
+
+  constructor(private locationSrv : LocationService ) {
   }
   ngOnInit(): void {
     this.GetAllLocation()
@@ -36,4 +37,9 @@ export class DestinationListComponent implements OnInit {
   }
 }
 
+deleteLocation(val:any){
+this.locationId = val;
+this.locationSrv.deleteLocationApi(this.locationId).subscribe((res:any)=>{
+})
+}
 }

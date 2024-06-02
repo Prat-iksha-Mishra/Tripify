@@ -8,6 +8,7 @@ import { ContactPageComponent } from './contact-page/contact-page.component';
 import { HotelBookingFormComponent } from './Booking/hotel-booking-form/hotel-booking-form.component';
 import { DestinationListComponent } from './Destination/destination-list/destination-list.component';
 import { DestinationDetailComponent } from './Destination/destination-detail/destination-detail.component';
+import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
   {
@@ -45,6 +46,11 @@ const routes: Routes = [
   {
     component: DestinationDetailComponent,
     path: 'DestinationDetail/:id'
+  }
+  ,
+  {
+    component: LoginComponent,
+    path: 'LoginUser'
   }
 ];
 

@@ -52,7 +52,20 @@ export class LocationService {
     debugger;
     return this.client.post(Constant.API_END_POINT + Constant.METHODS.CREATE_CATEGORY,obj)
    }
+   deleteLocationApi(id:any):Observable<any>{
+    debugger;
+    return this.client.post(Constant.API_END_POINT + Constant.METHODS.DELETE_LOCATION,id)
+   }
 
+   deleteStateApi(id:any):Observable<any>{
+    debugger;
+    return this.client.post(Constant.API_END_POINT + Constant.METHODS.DELETE_STATE,id)
+   }
+
+   deleteCategoryApi(id:any):Observable<any>{
+    debugger;
+    return this.client.post(Constant.API_END_POINT + Constant.METHODS.DELETE_CATEGORY,id)
+   }
    getStateApi():Observable<any>{
     debugger;
     return this.client.get(Constant.API_END_POINT + Constant.METHODS.GET_ALL_STATE);

@@ -1,20 +1,50 @@
 /* You can add global styles to this file, and also import other style files */
 .Navcolor{
-  background-color: #F3D88C;
+  background-color:rgb(26, 24, 24);
 }
 .bodyColor{
   background-color: #F7F3E7;
 }
-.background_Image {
-  background-image: url('./assets/WallPaper2.jpg');
+.header_Img_For_Home {
+  background-image: url('./assets/Theme1.jpg');
+  background-size: cover;
+  background-position: top;
+  width: 100%;
+  height: 80vh; /* Adjust this value to control how much of the image is shown */
+  overflow: hidden;
+}
+.header_Img_For_All
+{
+  background-image: url('./assets/flat-lay-camera-compass-frame.jpg');
   background-size: cover;
   background-position: center;
   /* You can add additional styling as needed */
   width: 100%;
-  height: 80vh; /* or any height you need */
-
+  height: 40vh;
 }
 .text-white {
-  color: white;
-  font-weight: 900; /* Makes the text bold */
+  color: white
 }
+
+.Login_page_background{
+  background-image: url('./assets/Theme1.jpg');
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.custom-card {
+  border: 1px solid;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 10px;
+  opacity: 0.6;
+  background-color:black;
+  border-radius: 70px;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
